@@ -1,6 +1,13 @@
 from RefSystem import *
 
-rs = RefSystem()
-rs.initFromCSV("Example.txt")
+
+rs = RefSystem("Example.txt")
+rs.initFromCSV()
 rs.initGrid()
 rs.run()
+rs.saveGridToData()
+rs.saveToCSV()
+
+
+print("Hello")
+
