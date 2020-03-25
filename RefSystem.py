@@ -11,7 +11,17 @@ class RefSystem(object):
         self.grid = []
         self.filename = filename
         self.dataVar = []
-    
+        self.current_row = 0
+        self.addNewButton()
+
+    def onNewButton(self):
+        print("NewButtonClicked")
+
+    def addNewButton(self):
+        self.newButton = tk.Button(self.root, command=self.onNewButton, text = "New")
+        self.newButton.grid(row = self.current_row, column = 0)
+        self.current_row += 1
+
     def run(self):
         tk.mainloop()
 
@@ -36,11 +46,12 @@ class RefSystem(object):
         for i in range(len(self.data)):
             self.grid.append(self.data[i].copy())
             self.dataVar.append(self.data[i].copy())
+            #self.current_row += 1
             for j in range(len(self.data[1])):
                 s = tk.StringVar()
                 s.set(self.data[i][j])
                 e = tk.Entry(self.root, textvariable = s)
-                e.grid(row = i, column = j)
+                e.grid(row = i + self.current_row, column = j)
                 #e.pack()
                 self.dataVar[i][j] = s
                 self.grid[i][j] = e
