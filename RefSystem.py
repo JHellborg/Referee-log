@@ -15,7 +15,16 @@ class RefSystem(object):
         self.addNewButton()
 
     def onNewButton(self):
-        print("NewButtonClicked")
+        self.dataVar.append([])
+        self.data.append(self.data[0].copy())
+        newLine = len(self.dataVar) - 1
+        for i in range(len(self.data[0])):
+            s = tk.StringVar()
+            entry = tk.Entry(self.root, textvariable = s)
+            entry.grid(row = self.current_row, column = i)
+            self.dataVar[newLine].append(s)
+        self.current_row += 1
+
 
     def addNewButton(self):
         self.newButton = tk.Button(self.root, command=self.onNewButton, text = "New")
@@ -46,21 +55,22 @@ class RefSystem(object):
         for i in range(len(self.data)):
             self.grid.append(self.data[i].copy())
             self.dataVar.append(self.data[i].copy())
-            #self.current_row += 1
+            
             for j in range(len(self.data[1])):
                 s = tk.StringVar()
                 s.set(self.data[i][j])
                 e = tk.Entry(self.root, textvariable = s)
-                e.grid(row = i + self.current_row, column = j)
-                #e.pack()
+                e.grid(row = self.current_row, column = j)
                 self.dataVar[i][j] = s
                 self.grid[i][j] = e
+
+            self.current_row += 1
                 
 
     def saveGridToData(self):
 
-        for i in range(len(self.grid)):
-            for j in range(len(self.grid[0])):
+        for i in range(len(self.dataVar)):
+            for j in range(len(self.dataVar[0])):
                 s = self.dataVar[i][j]
                 self.data[i][j] = s.get()
 
