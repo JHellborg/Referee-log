@@ -34,15 +34,15 @@ class RefSystem(object):
 
     def addFieldLabels(self):
         dayLabel = tk.Label(self.root, text="Day")
-        dayLabel.grid(row = self.current_row, column = 0)
+        dayLabel.grid(row = self.current_row, column = 0, sticky=tk.W)
         dayLabel = tk.Label(self.root, text="Month")
-        dayLabel.grid(row = self.current_row, column = 1)
+        dayLabel.grid(row = self.current_row, column = 1, sticky=tk.W)
         dayLabel = tk.Label(self.root, text="Club")
-        dayLabel.grid(row = self.current_row, column = 2)
+        dayLabel.grid(row = self.current_row, column = 2, sticky=tk.W)
         dayLabel = tk.Label(self.root, text="Drive")
-        dayLabel.grid(row = self.current_row, column = 3)
+        dayLabel.grid(row = self.current_row, column = 3, sticky=tk.W)
         dayLabel = tk.Label(self.root, text="Salary")
-        dayLabel.grid(row = self.current_row, column = 4)
+        dayLabel.grid(row = self.current_row, column = 4, sticky=tk.W)
         self.current_row += 1
 
     def run(self):
