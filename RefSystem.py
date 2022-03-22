@@ -13,6 +13,7 @@ class RefSystem(object):
         self.dataVar = []
         self.current_row = 0
         self.addNewButton()
+        self.addFieldLabels()
 
     def onNewButton(self):
         self.dataVar.append([])
@@ -29,6 +30,19 @@ class RefSystem(object):
     def addNewButton(self):
         self.newButton = tk.Button(self.root, command=self.onNewButton, text = "New")
         self.newButton.grid(row = self.current_row, column = 0)
+        self.current_row += 1
+
+    def addFieldLabels(self):
+        dayLabel = tk.Label(self.root, text="Day")
+        dayLabel.grid(row = self.current_row, column = 0)
+        dayLabel = tk.Label(self.root, text="Month")
+        dayLabel.grid(row = self.current_row, column = 1)
+        dayLabel = tk.Label(self.root, text="Club")
+        dayLabel.grid(row = self.current_row, column = 2)
+        dayLabel = tk.Label(self.root, text="Drive")
+        dayLabel.grid(row = self.current_row, column = 3)
+        dayLabel = tk.Label(self.root, text="Salary")
+        dayLabel.grid(row = self.current_row, column = 4)
         self.current_row += 1
 
     def run(self):
@@ -51,6 +65,7 @@ class RefSystem(object):
 
     def initGrid(self):
         
+
 
         for i in range(len(self.data)):
             self.grid.append(self.data[i].copy())
