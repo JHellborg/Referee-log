@@ -39,7 +39,7 @@ class RefSystem(object):
         dayLabel.grid(row = self.current_row, column = 1, sticky=tk.W)
         dayLabel = tk.Label(self.root, text="Club")
         dayLabel.grid(row = self.current_row, column = 2, sticky=tk.W)
-        dayLabel = tk.Label(self.root, text="Drive")
+        dayLabel = tk.Label(self.root, text="Travel")
         dayLabel.grid(row = self.current_row, column = 3, sticky=tk.W)
         dayLabel = tk.Label(self.root, text="Salary")
         dayLabel.grid(row = self.current_row, column = 4, sticky=tk.W)
@@ -65,8 +65,6 @@ class RefSystem(object):
 
     def initGrid(self):
         
-
-
         for i in range(len(self.data)):
             self.grid.append(self.data[i].copy())
             self.dataVar.append(self.data[i].copy())
